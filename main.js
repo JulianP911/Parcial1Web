@@ -4,7 +4,7 @@ const urlInfo = 'https://gist.githubusercontent.com/josejbocanegra/9a28c356416ba
 // Obtener la informacion correspondiente del restaurante
 fetch(urlInfo).then(res => res.json()).then(restaurantEjecution)
 
-// 
+// Ejecucion de las funcionalidades
 function restaurantEjecution (arrayFood) {
     let listCategories = document.getElementById("listCategories");
     arrayFood.forEach(foodCategorie => {
@@ -19,6 +19,7 @@ function restaurantEjecution (arrayFood) {
 
     console.log(arrayFood)
 
+    // Funcionalidad 1
     document.querySelectorAll(".nav-link").forEach(itemNav => {
         itemNav.addEventListener("click", (event) => {
             // Variable de la categoria
@@ -51,7 +52,7 @@ function restaurantEjecution (arrayFood) {
                 pPrice.className = "card-text";
                 pPrice.textContent = item.price;
                 let buttomAdd = document.createElement("a");
-                buttomAdd.className = "btn btn-primary";
+                buttomAdd.className = "btn btn-primary btn-item";
                 buttomAdd.setAttribute("type", "button");
                 buttomAdd.textContent = "Add to card";
 
@@ -67,6 +68,18 @@ function restaurantEjecution (arrayFood) {
                 console.log(divCardBody)
             })
         })
-    }) ;  
+    });  
+
+    let numItems = 0;
+    // Funcionalidad 2
+    let buttonsItems = document.getElementsByClassName("btn-item");
+    for (let i = 0; i < buttonsItems.length; i++) {
+        const button = buttonsItems[i];
+        button.addEventListener("click", function () {
+            let spanNavbar = document.getElementById("itemsAdd");
+            spanNavbar.textContent = numItems + "items";
+        });
+        
+    }
 }
 
