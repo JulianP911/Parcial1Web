@@ -17,9 +17,7 @@ function restaurantEjecution (arrayFood) {
         listCategories.appendChild(li);
     });
 
-    console.log(arrayFood)
-
-    // Funcionalidad 1
+    
     document.querySelectorAll(".nav-link").forEach(itemNav => {
         itemNav.addEventListener("click", (event) => {
             // Variable de la categoria
@@ -31,17 +29,22 @@ function restaurantEjecution (arrayFood) {
 
             let listCategory = arrayFood.find(elementFood => elementFood.name == category);
             let divProductsCards = document.getElementById("products");
+            let numCards = 0;
+
+            while (divProductsCards.lastElementChild) {
+                divProductsCards.removeChild(divProductsCards.lastElementChild);
+            }
 
             listCategory.products.forEach(item => {
                 let divCard = document.createElement("div");
-                divCard.className = "card col-3";
+                divCard.className = "card cardItem";
                 divCard.setAttribute("style", "width: 18rem;")
                 let imgCard = document.createElement("img");
                 imgCard.className = "card-img-top"
                 imgCard.setAttribute("src", item.image);
                 imgCard.setAttribute("alt", item.name);
                 let divCardBody = document.createElement("div");
-                divCard.className = "card-body";
+                divCardBody.className = "card-body";
                 let h5 = document.createElement("h5");
                 h5.className = "card-title";
                 h5.textContent = item.name;
@@ -55,31 +58,27 @@ function restaurantEjecution (arrayFood) {
                 buttomAdd.className = "btn btn-primary btn-item";
                 buttomAdd.setAttribute("type", "button");
                 buttomAdd.textContent = "Add to card";
+                buttomAdd.addEventListener("click", countItems)
 
                 divCard.appendChild(imgCard);
-                divProductsCards.appendChild(divCard);
-
+            
                 divCardBody.appendChild(h5);
                 divCardBody.appendChild(pDescription);
                 divCardBody.appendChild(pPrice);
                 divCardBody.appendChild(buttomAdd);
-                divProductsCards.appendChild(divCardBody);
+                divCard.appendChild(divCardBody);
 
-                console.log(divCardBody)
-            })
-        })
-    });  
-
-    let numItems = 0;
-    // Funcionalidad 2
-    let buttonsItems = document.getElementsByClassName("btn-item");
-    for (let i = 0; i < buttonsItems.length; i++) {
-        const button = buttonsItems[i];
-        button.addEventListener("click", function () {
-            let spanNavbar = document.getElementById("itemsAdd");
-            spanNavbar.textContent = numItems + "items";
+                divProductsCards.appendChild(divCard)
+                numCards++;
+            });
         });
-        
-    }
+    });  
+}
+
+let numItems = 0;
+let itemCar = document.getElementById("itemsAdd")
+
+function countItems() {
+    itemCar.textContent = (numItems + 1) + " items"
 }
 

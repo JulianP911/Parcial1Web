@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+#navbarConfig {
+    height: 4rem;
+}
+
 #CarritoCompras {
     width: "55px"; 
     height: "55px";
@@ -5,4 +11,28 @@
 
 #BannerBurger {
     width: 100%;
+}
+
+#containerCards {
+    padding: 2rem;
+}
+
+#itemsAdd {
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    font-size: 17px;
+}
+
+#titleRestaurant {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+}
+
+#footerText {
+    font-weight: bold;
+}
+
+.cardItem {
+    margin-top: 2rem;
+    margin-left: 1rem;
 }
