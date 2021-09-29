@@ -273,6 +273,7 @@ function restaurantEjecution (arrayFood) {
         objectOrder["unitPrice"] = element.unitPrice;
         order.push(objectOrder);
       });
+      // eslint-disable-next-line no-console
       console.log(order);
     });
 
