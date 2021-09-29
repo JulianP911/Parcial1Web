@@ -256,14 +256,17 @@ function countItems(item, quantity) {
     numItems = numItems + 1;
 }
 
+// Descontar items de la orden actualizando el label relacionado al tag con id itemCar
 function descountItems() {
     itemCar.textContent = (numItems - 1) + " items";
 }
 
+// Adiciona alimentos seleccionados al arreglo de la orden
 function addItems(item) {
     a.push(item)
 }
 
+// Funcion que recalcula el valor total de una orden cuando se adiciona alguna comida a la orden
 function recalTotalA(quantity) {
     let total = 0;
     quantity.forEach(element => {
@@ -272,6 +275,7 @@ function recalTotalA(quantity) {
     return total;
 }
 
+// Funcion que recalcula el valor total de una orden cuando se elimina alguna comida a la orden
 function recalTotalD(quantity) {
     let total = 0;
     quantity.forEach(element => {
