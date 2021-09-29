@@ -3,13 +3,13 @@
 
 /* Estilo para el elemento con id navbarConfig */
 #navbarConfig {
-    height: 4rem;
+    height: 4em;
 }
 
 /* Estilo para el elemento con id CarritoCompras */
 #CarritoCompras {
-    width: "55px"; 
-    height: "55px";
+    width: 45px; 
+    height: 45px;
 }
 
 /* Estilo para el elemento con id BannerBurger */
@@ -19,20 +19,20 @@
 
 /* Estilo para el elemento con id containerCards */
 #containerCards {
-    padding: 2rem;
+    padding: 2em;
 }
 
 /* Estilo para el elemento con id itemsAdd */
 #itemsAdd {
-    padding-left: 1rem;
-    padding-right: 1.5rem;
+    padding-left: 1em;
+    padding-right: 1.5em;
     font-size: 17px;
 }
 
 /* Estilo para el elemento con id titleRestaurant */
 #titleRestaurant {
     font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
+    font-size: 2em;
 }
 
 /* Estilo para el elemento con id footerText */
@@ -47,13 +47,13 @@
 
 /* Estilo para el elemento con id divButtoms */
 #divButtoms {
-    margin-right: 1rem;
+    margin-right: 1em;
 }
 
 /* Estilo para los elementos con la clase imgFood */
 .imgFood {
-    margin-top: 1rem;
-    height: 12rem;
+    margin-top: 1em;
+    height: 12em;
 }
 
 /* Estilo para los elementos con la clase spanTotalItems */
@@ -63,13 +63,13 @@
 
 /* Estilo para los elementos con la clase cardItem */
 .cardItem {
-    margin-top: 2rem;
-    margin-left: 1rem;
+    margin-top: 2em;
+    margin-left: 1em;
 }
 
 /* Estilo para los elementos con la clase btn-order */
 .btn-order {
-    margin-left: 0.5rem;
+    margin-left: 0.5em;
     border: 1px gray solid;
 }
 
@@ -80,7 +80,7 @@
 
 /* Estilo para los elementos con la clase btn-row */
 .btn-row {
-    margin-left: 0.7rem;
+    margin-left: 0.7em;
 }
 
 /* Estilo para los elementos con la clase btn-border */
