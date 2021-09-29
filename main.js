@@ -125,20 +125,30 @@ function restaurantEjecution (arrayFood) {
         });
     });
     
+    // Variable que representa si la cabezera de la tabla ya fue desplegada
     let tableHead = false;
+
+    // Obtener el elemnto carItems y aplicarle la funcionalidad de click para desplegar la tabla con la orden de items
     document.getElementById("carItems").addEventListener("click", function () {
+
+        // No desplegar tableItems y optionsItems
         tableItems.innerHTML = "";
         optionsItems.innerHTML = "";
+
+        // Eliminar nodos que presenten al elemento divProductsCards
         while (divProductsCards.lastElementChild) {
             divProductsCards.removeChild(divProductsCards.lastElementChild);
         }
 
+         // Cambio de nombre de titulo para desplegar el texto Order datail
         let title = document.getElementById("titleCategory");
         title.textContent = "Order detail"
 
+        // Cambio de la clase del elemento table para configurar la clase table-striped
         let table = document.createElement("table");
-        table.className ="table table-stripped";
+        table.className ="table table-striped";
         
+        // Si la cabacera de la tabla no ha sido desplegada, se despiga con los elementos correspondientes
         if(tableHead == false)
         {
             let tHead = document.createElement("thead");
@@ -152,17 +162,22 @@ function restaurantEjecution (arrayFood) {
                 trHead.appendChild(trHd);
             }
 
+            // Adicionar los elementos trHead a tHead y tHead a table
             tHead.appendChild(trHead);
             table.appendChild(tHead);
             tableHead = true;
         }
 
+        // Variables requeridas para el despliegue de las filas de la tabla
         let tBody = document.createElement("tbody");
         let spanTotal;
-
         let index = 0;
         let total = 0;
+
+        // Por cada elemento adicionado a la orden se crea su propia fila con la informacion respectiva
         quantity.forEach(element => {
+
+            // Creacion de elementos necesarios para la creacion de la fila de la tabla
             let tr = document.createElement("tr");
             let thIndex = document.createElement("th");
             thIndex.setAttribute("scope", "col");
@@ -176,17 +191,26 @@ function restaurantEjecution (arrayFood) {
             let tdAmount = document.createElement("td");
             tdAmount.textContent = element.amount;
             let tdButtons = document.createElement("td")
+
+            // Creacion del elemento a que corresponde al botton +
             let buttomAdd = document.createElement("a");
             buttomAdd.className = "btn btn-dark btn-row";
             buttomAdd.textContent = "+";
+            
+            // Funcion para adicioanar nuevo item al hacer click al boton con sus respectivas funcionalidades
             buttomAdd.addEventListener("click", function() {
                 tdQty.textContent = ++element.quantity;
                 tdAmount.textContent = element.quantity * element.unitPrice;
                 element.amount = element.quantity * element.unitPrice;
                 spanTotal.textContent = "Total $" + recalTotalA(quantity);
             });
+
+            // Creacion del elemento a que corresponde al botton -
             let buttomLess = document.createElement("a");
             buttomLess.className = "btn btn-dark btn-row";
+            buttomLess.textContent = "-";
+
+            // Funcion para eleiminar item al hacer click al boton con sus respectivas funcionalidades
             buttomLess.addEventListener("click", function() {
                 tdQty.textContent = --element.quantity;
                 if(tdQty.textContent !== 0)
@@ -201,23 +225,26 @@ function restaurantEjecution (arrayFood) {
                     descountItems();
                 }
             });
-            buttomLess.textContent = "-";
 
+            // Adicionar los elementos thIndex, tdQty, tdDescription, tdUnitPrice, tdAmount a tr
             tr.appendChild(thIndex);
             tr.appendChild(tdQty);
             tr.appendChild(tdDescription);
             tr.appendChild(tdUnitPrice);
             tr.appendChild(tdAmount)
 
+            // Adicionar los elementos buttomAdd, buttomLess a tdButtoms
             tdButtons.appendChild(buttomAdd);
             tdButtons.appendChild(buttomLess);
 
-            tr.appendChild(tdButtons)
+            // Adicionar el elemnto tdButtons a tr y tr a tBody y actualizacion de varibles total e index
+            tr.appendChild(tdButtons);
             tBody.appendChild(tr);
-
             total += element.amount;
+            index++;
         });
 
+        // Creacion de elementos necesarios para la creacion de la fila que contiene el total y los botones correspondientes
         let divRow = document.createElement("div");
         divRow.className = "row"
         let divSpan = document.createElement("div");
@@ -237,6 +264,8 @@ function restaurantEjecution (arrayFood) {
         let buttomConfirm = document.createElement("a");
         buttomConfirm.className = "btn btn-light btn-order";
         buttomConfirm.textContent = "Confirm order";
+
+        // Funcion para el boton confirm que imprime en consola la informacion de la orden
         buttomConfirm.addEventListener("click", function () {
             let i = 1;
             let order = [];
@@ -250,17 +279,22 @@ function restaurantEjecution (arrayFood) {
             })
             console.log(order);
         });
+
+        // Adicionar los elementos buttomCancel, buttomConfirm a divButtoms
         divButtoms.appendChild(buttomCancel);
         divButtoms.appendChild(buttomConfirm);
 
+        // Adicionar los elementos divSpan, divButtoms a divRow
         divRow.appendChild(divSpan);
         divRow.appendChild(divButtoms);
         
+        // Adicionar el elemento tBody a table, table a tableItems y divRow a optionsItems
         table.appendChild(tBody)
         tableItems.appendChild(table)
         optionsItems.appendChild(divRow);
     });
 
+    // Obtener el elemnto buttonYes y aplicarle la funcionalidad de click para limpiar la tabla al confirmar la cancelacion
     document.getElementById("buttonYes").addEventListener("click", function() {
         tableItems.innerHTML = "";
         optionsItems.innerHTML = "";
@@ -268,6 +302,7 @@ function restaurantEjecution (arrayFood) {
     });
 }
 
+// Variables para manejar el numero de items y obtener el elemento con id itemCar
 let numItems = 0;
 let itemCar = document.getElementById("itemsAdd")
 
