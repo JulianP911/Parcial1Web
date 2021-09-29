@@ -201,6 +201,19 @@ function restaurantEjecution (arrayFood) {
         let buttomConfirm = document.createElement("a");
         buttomConfirm.className = "btn btn-light btn-order";
         buttomConfirm.textContent = "Confirm order";
+        buttomConfirm.addEventListener("click", function () {
+            let i = 1;
+            let order = [];
+            quantity.forEach(element => {
+                let objectOrder = {};
+                objectOrder["item"] = i;
+                objectOrder["quantity"] = element.quantity;
+                objectOrder["description"] = element.food;
+                objectOrder["unitPrice"] = element.unitPrice;
+                order.push(objectOrder);
+            })
+            console.log(order);
+        });
         divButtoms.appendChild(buttomCancel);
         divButtoms.appendChild(buttomConfirm);
 
