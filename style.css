@@ -66,3 +66,7 @@
 .btn-row {
     margin-left: 0.7rem;
 }
+
+.btn-border {
+    border: 1px gray solid;
+}

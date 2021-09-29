@@ -192,9 +192,12 @@ function restaurantEjecution (arrayFood) {
         let divButtoms = document.createElement("div");
         divButtoms.className = "col d-flex justify-content-end"
         divButtoms.setAttribute("id", "divButtoms");
-        let buttomCancel = document.createElement("a");
+        let buttomCancel = document.createElement("button");
         buttomCancel.className = "btn btn-danger btn-order";
         buttomCancel.textContent = "Cancel";
+        buttomCancel.setAttribute("data-target", "#cancelModal");
+        buttomCancel.setAttribute("data-toggle", "modal");
+        console.log(buttomCancel);
         let buttomConfirm = document.createElement("a");
         buttomConfirm.className = "btn btn-light btn-order";
         buttomConfirm.textContent = "Confirm order";
@@ -209,6 +212,11 @@ function restaurantEjecution (arrayFood) {
         table.appendChild(tBody)
         tableItems.appendChild(table)
         optionsItems.appendChild(divRow);
+    });
+
+    document.getElementById("buttonYes").addEventListener("click", function() {
+        tableItems.innerHTML = "";
+        optionsItems.innerHTML = "";
     });
 }
 
