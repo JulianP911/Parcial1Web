@@ -159,6 +159,7 @@ function restaurantEjecution (arrayFood) {
                 if(tdQty.textContent === "0")
                 {
                     tr.innerHTML = "";
+                    descountItems();
                 }
             });
             buttomLess.textContent = "-";
@@ -228,6 +229,10 @@ function countItems(item, quantity) {
         encontrado.amount = encontrado.quantity * encontrado.unitPrice;
     }
     numItems = numItems + 1;
+}
+
+function descountItems() {
+    itemCar.textContent = (numItems - 1) + " items";
 }
 
 function addItems(item) {
