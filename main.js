@@ -150,9 +150,16 @@ function restaurantEjecution (arrayFood) {
             buttomLess.className = "btn btn-dark btn-row";
             buttomLess.addEventListener("click", function() {
                 tdQty.textContent = --element.quantity;
-                tdAmount.textContent = element.quantity * element.unitPrice;
-                element.amount = element.quantity * element.unitPrice;
-                spanTotal.textContent = "Total $" + recalTotalD(quantity);
+                if(tdQty.textContent !== 0)
+                {
+                    tdAmount.textContent = element.quantity * element.unitPrice;
+                    element.amount = element.quantity * element.unitPrice;
+                    spanTotal.textContent = "Total $" + recalTotalD(quantity);
+                }
+                if(tdQty.textContent === "0")
+                {
+                    tr.innerHTML = "";
+                }
             });
             buttomLess.textContent = "-";
 
