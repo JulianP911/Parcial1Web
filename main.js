@@ -98,7 +98,7 @@ function restaurantEjecution (arrayFood) {
         title.textContent = "Order detail"
 
         let table = document.createElement("table");
-        table.className ="table table_stripped";
+        table.className ="table table-stripped";
         
         if(tableHead == false)
         {
@@ -119,6 +119,7 @@ function restaurantEjecution (arrayFood) {
         }
 
         let tBody = document.createElement("tbody");
+        let spanTotal;
 
         let index = 0;
         let total = 0;
@@ -141,12 +142,17 @@ function restaurantEjecution (arrayFood) {
             buttomAdd.textContent = "+";
             buttomAdd.addEventListener("click", function() {
                 tdQty.textContent = ++element.quantity;
-                console.log(element.quantity * element.unitPrice);
+                tdAmount.textContent = element.quantity * element.unitPrice;
+                element.amount = element.quantity * element.unitPrice;
+                spanTotal.textContent = "Total $" + recalTotalA(quantity);
             });
             let buttomLess = document.createElement("a");
             buttomLess.className = "btn btn-dark btn-row";
             buttomLess.addEventListener("click", function() {
                 tdQty.textContent = --element.quantity;
+                tdAmount.textContent = element.quantity * element.unitPrice;
+                element.amount = element.quantity * element.unitPrice;
+                spanTotal.textContent = "Total $" + recalTotalD(quantity);
             });
             buttomLess.textContent = "-";
 
@@ -165,12 +171,11 @@ function restaurantEjecution (arrayFood) {
             total += element.amount;
         });
 
-        console.log(total)
         let divRow = document.createElement("div");
         divRow.className = "row"
         let divSpan = document.createElement("div");
         divSpan.className = "col"
-        let spanTotal = document.createElement("span");
+        spanTotal = document.createElement("span");
         spanTotal.textContent = "Total: $" + total;
         spanTotal.setAttribute("id", "spanTotalItems");
         divSpan.appendChild(spanTotal);
@@ -211,7 +216,6 @@ function countItems(item, quantity) {
         event["unitPrice"] = item.price;
         event["amount"] = item.price;
         quantity.push(event);
-        console.log(event);
     } else {
         encontrado.quantity ++;
         encontrado.amount = encontrado.quantity * encontrado.unitPrice;
@@ -221,4 +225,24 @@ function countItems(item, quantity) {
 
 function addItems(item) {
     a.push(item)
+}
+
+function recalTotalA(quantity) {
+    console.log(quantity)
+    let total = 0;
+    quantity.forEach(element => {
+        total += element.amount;
+    });
+    console.log(total);
+    return total;
+}
+
+function recalTotalD(quantity) {
+    console.log(quantity)
+    let total = 0;
+    quantity.forEach(element => {
+        total -= (-element.amount);
+    });
+    console.log(total);
+    return total;
 }
