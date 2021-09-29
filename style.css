@@ -1,72 +1,89 @@
+/* Importar estilo de fuente de google font */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+/* Estilo para el elemento con id navbarConfig */
 #navbarConfig {
     height: 4rem;
 }
 
+/* Estilo para el elemento con id CarritoCompras */
 #CarritoCompras {
     width: "55px"; 
     height: "55px";
 }
 
+/* Estilo para el elemento con id BannerBurger */
 #BannerBurger {
     width: 100%;
 }
 
+/* Estilo para el elemento con id containerCards */
 #containerCards {
     padding: 2rem;
 }
 
+/* Estilo para el elemento con id itemsAdd */
 #itemsAdd {
     padding-left: 1rem;
     padding-right: 1.5rem;
     font-size: 17px;
 }
 
+/* Estilo para el elemento con id titleRestaurant */
 #titleRestaurant {
     font-family: 'Dancing Script', cursive;
     font-size: 2rem;
 }
 
+/* Estilo para el elemento con id footerText */
 #footerText {
     font-weight: bold;
 }
 
+/* Estilo para el elemento con id itemPrice */
 #itemPrice {
     font-weight: bold;
 }
 
+/* Estilo para el elemento con id divButtoms */
 #divButtoms {
     margin-right: 1rem;
 }
 
+/* Estilo para los elementos con la clase imgFood */
 .imgFood {
     margin-top: 1rem;
     height: 12rem;
 }
 
+/* Estilo para los elementos con la clase spanTotalItems */
 #spanTotalItems {
     font-weight: bold;
 }
 
+/* Estilo para los elementos con la clase cardItem */
 .cardItem {
     margin-top: 2rem;
     margin-left: 1rem;
 }
 
+/* Estilo para los elementos con la clase btn-order */
 .btn-order {
     margin-left: 0.5rem;
     border: 1px gray solid;
 }
 
+/* Estilo para los elementos con la clase btn-order:hover */
 .btn-order:hover {
     border: 1px gray solid;
 }
 
+/* Estilo para los elementos con la clase btn-row */
 .btn-row {
     margin-left: 0.7rem;
 }
 
+/* Estilo para los elementos con la clase btn-border */
 .btn-border {
     border: 1px gray solid;
 }
