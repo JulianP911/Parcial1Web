@@ -230,11 +230,16 @@ function restaurantEjecution (arrayFood) {
     document.getElementById("buttonYes").addEventListener("click", function() {
         tableItems.innerHTML = "";
         optionsItems.innerHTML = "";
+        clearCar();
     });
 }
 
 let numItems = 0;
 let itemCar = document.getElementById("itemsAdd")
+
+function clearCar () {
+    itemCar.textContent = (0) + " items";
+}
 
 function countItems(item, quantity) {
     itemCar.textContent = (numItems + 1) + " items";
