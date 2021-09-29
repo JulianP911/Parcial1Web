@@ -40,7 +40,7 @@ function restaurantEjecution (arrayFood) {
                 divCard.className = "card cardItem";
                 divCard.setAttribute("style", "width: 18rem;")
                 let imgCard = document.createElement("img");
-                imgCard.className = "card-img-top"
+                imgCard.className = "card-img-top imgFood"
                 imgCard.setAttribute("src", item.image);
                 imgCard.setAttribute("alt", item.name);
                 let divCardBody = document.createElement("div");
@@ -53,9 +53,10 @@ function restaurantEjecution (arrayFood) {
                 pDescription.textContent = item.description;
                 let pPrice = document.createElement("p");
                 pPrice.className = "card-text";
-                pPrice.textContent = item.price;
+                pPrice.setAttribute("id", "itemPrice")
+                pPrice.textContent = "$" + item.price;
                 let buttomAdd = document.createElement("a");
-                buttomAdd.className = "btn btn-primary btn-item";
+                buttomAdd.className = "btn btn-dark btn-item";
                 buttomAdd.setAttribute("type", "button");
                 buttomAdd.textContent = "Add to card";
                 buttomAdd.addEventListener("click", countItems)

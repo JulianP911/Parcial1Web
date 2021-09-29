@@ -32,6 +32,15 @@
     font-weight: bold;
 }
 
+#itemPrice {
+    font-weight: bold;
+}
+
+.imgFood {
+    margin-top: 1rem;
+    height: 12rem;
+}
+
 .cardItem {
     margin-top: 2rem;
     margin-left: 1rem;
