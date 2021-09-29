@@ -19,6 +19,8 @@ function restaurantEjecution (arrayFood) {
     });
 
     let divProductsCards = document.getElementById("products");
+    let tableItems = document.getElementById("tableItems");
+    let optionsItems = document.getElementById("optionsItems");
     let quantity = [];
 
     document.querySelectorAll(".nav-link").forEach(itemNav => {
@@ -81,11 +83,11 @@ function restaurantEjecution (arrayFood) {
                 divProductsCards.appendChild(divCard)
                 numCards++;
             });
+            tableItems.innerHTML = "";
+            optionsItems.innerHTML = "";
         });
     });
     
-    let tableItems = document.getElementById("tableItems");
-    let optionsItems = document.getElementById("optionsItems");
     let tableHead = false;
     document.getElementById("carItems").addEventListener("click", function () {
         tableItems.innerHTML = "";
