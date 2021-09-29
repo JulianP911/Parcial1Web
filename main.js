@@ -1,7 +1,7 @@
 // Url de donde se encuentra el json con la informacion
 const urlInfo = 'https://gist.githubusercontent.com/josejbocanegra/9a28c356416badb8f9173daf36d1460b/raw/5ea84b9d43ff494fcbf5c5186544a18b42812f09/restaurant.json';
 
-// Obtener la informacion correspondiente del restaurante
+// Obtener la informacion correspondiente del restaurante y ejecutar la funcion restaurantEjecution
 fetch(urlInfo).then(res => res.json()).then(restaurantEjecution)
 
 // Arreglo donde se almacenan los items seleccionados
@@ -9,23 +9,43 @@ let a = [];
 
 // Ejecucion de las funcionalidades establecias 
 function restaurantEjecution (arrayFood) {
+
+    // Obtener el elemento con el id listCategories
     let listCategories = document.getElementById("listCategories");
+
+    // Recorrer el arreglo obtendio de categorias con sus productos correspondientes
     arrayFood.forEach(foodCategorie => {
+
+        // Creacion de elementos li, a con su repsectiva configuracion de clases y contenido
         let li = document.createElement("li");
         li.className = "nav-item ";
         let a = document.createElement("a");
         a.className = "nav-link"
         a.textContent = foodCategorie.name;
+
+        // Adicionar el elemento a en li
         li.appendChild(a);
+
+        // Adicionar el elemento li en listCategories para la creacion del navbar
         listCategories.appendChild(li);
     });
 
+    // Obtener el elemento con el id products
     let divProductsCards = document.getElementById("products");
+
+    // Obtener el elemento con el id tableItems
     let tableItems = document.getElementById("tableItems");
+
+    // Obtener el elemento con el id optionsItems
     let optionsItems = document.getElementById("optionsItems");
+
+    // Arreglo de objetos items con su informacion correspondiente
     let quantity = [];
 
+    // Obtener los selectores con la clase .nav-link
     document.querySelectorAll(".nav-link").forEach(itemNav => {
+
+        // Al hacer click en la opcion del navbar mostrar los items mediante cards
         itemNav.addEventListener("click", (event) => {
             // Variable de la categoria
             let category = event.target.text;
@@ -34,14 +54,21 @@ function restaurantEjecution (arrayFood) {
             let titleCategory = document.getElementById("titleCategory");
             titleCategory.textContent = category;
 
+            // Encontrar en el arreglo el elemento donde el nombre y la categoria concidan
             let listCategory = arrayFood.find(elementFood => elementFood.name == category);
+
+            // Numero de cards
             let numCards = 0;
 
+            // Eliminar nodos que presenten al elemento divProductsCards
             while (divProductsCards.lastElementChild) {
                 divProductsCards.removeChild(divProductsCards.lastElementChild);
             }
 
+            // Por cada item en categoria se crea su repsectiva card asociada
             listCategory.products.forEach(item => {
+
+                // Creacion de elementos necesarios para la creacion de la card
                 let divCard = document.createElement("div");
                 divCard.className = "card cardItem";
                 divCard.setAttribute("style", "width: 18rem;")
@@ -66,25 +93,33 @@ function restaurantEjecution (arrayFood) {
                 buttomAdd.setAttribute("type", "button");
                 buttomAdd.setAttribute("id", "button-" + category + "-" + item.name)
                 buttomAdd.textContent = "Add to card";
+
+                // Funciones que se ejecutan al dar click en el boton estas son aumentar el contadr de items y almacenar el objeto del item con su informacion respectiva
                 buttomAdd.addEventListener("click", function() {
                     countItems(item, quantity)
                 });
-                
                 buttomAdd.addEventListener("click", function () {
                     addItems(item)
                 });
 
+                // Adicionar el elemento imgCard a divCard
                 divCard.appendChild(imgCard);
             
+                // Adicionar los elementos h5, pDescription, pPrice, buttomAdd a divCardBody
                 divCardBody.appendChild(h5);
                 divCardBody.appendChild(pDescription);
                 divCardBody.appendChild(pPrice);
                 divCardBody.appendChild(buttomAdd);
+
+                // Adicionar el elemento divCardBody a divCard
                 divCard.appendChild(divCardBody);
 
+                // Adicionar el elemento div card a divProductsCards y aumentar el numero de cards
                 divProductsCards.appendChild(divCard)
                 numCards++;
             });
+
+            // No desplegar tableItems y optionsItems
             tableItems.innerHTML = "";
             optionsItems.innerHTML = "";
         });
