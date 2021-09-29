@@ -36,12 +36,33 @@
     font-weight: bold;
 }
 
+#divButtoms {
+    margin-right: 1rem;
+}
+
 .imgFood {
     margin-top: 1rem;
     height: 12rem;
 }
 
+#spanTotalItems {
+    font-weight: bold;
+}
+
 .cardItem {
     margin-top: 2rem;
     margin-left: 1rem;
+}
+
+.btn-order {
+    margin-left: 0.5rem;
+    border: 1px gray solid;
+}
+
+.btn-order:hover {
+    border: 1px gray solid;
+}
+
+.btn-row {
+    margin-left: 0.7rem;
 }
