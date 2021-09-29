@@ -197,7 +197,6 @@ function restaurantEjecution (arrayFood) {
         buttomCancel.textContent = "Cancel";
         buttomCancel.setAttribute("data-target", "#cancelModal");
         buttomCancel.setAttribute("data-toggle", "modal");
-        console.log(buttomCancel);
         let buttomConfirm = document.createElement("a");
         buttomConfirm.className = "btn btn-light btn-order";
         buttomConfirm.textContent = "Confirm order";
@@ -219,8 +218,6 @@ function restaurantEjecution (arrayFood) {
 
         divRow.appendChild(divSpan);
         divRow.appendChild(divButtoms);
-
-        console.log(divRow);
         
         table.appendChild(tBody)
         tableItems.appendChild(table)
@@ -268,21 +265,17 @@ function addItems(item) {
 }
 
 function recalTotalA(quantity) {
-    console.log(quantity)
     let total = 0;
     quantity.forEach(element => {
         total += element.amount;
     });
-    console.log(total);
     return total;
 }
 
 function recalTotalD(quantity) {
-    console.log(quantity)
     let total = 0;
     quantity.forEach(element => {
         total -= (-element.amount);
     });
-    console.log(total);
     return total;
 }
