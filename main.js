@@ -4,8 +4,10 @@ const urlInfo = 'https://gist.githubusercontent.com/josejbocanegra/9a28c356416ba
 // Obtener la informacion correspondiente del restaurante
 fetch(urlInfo).then(res => res.json()).then(restaurantEjecution)
 
+// Arreglo donde se almacenan los items seleccionados
 let a = [];
-// Ejecucion de las funcionalidades
+
+// Ejecucion de las funcionalidades establecias 
 function restaurantEjecution (arrayFood) {
     let listCategories = document.getElementById("listCategories");
     arrayFood.forEach(foodCategorie => {
@@ -234,10 +236,12 @@ function restaurantEjecution (arrayFood) {
 let numItems = 0;
 let itemCar = document.getElementById("itemsAdd")
 
+// Reiniciar el contador de los items seleccionados en la orden
 function clearCar () {
     itemCar.textContent = (0) + " items";
 }
 
+// Contar los items seleccionados en la orden y adicionarlos en arreglo de objetos con su informacion respectiva
 function countItems(item, quantity) {
     itemCar.textContent = (numItems + 1) + " items";
     let encontrado = quantity.find(elementFood =>  elementFood.food == item.name);
