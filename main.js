@@ -289,14 +289,15 @@ function restaurantEjecution (arrayFood) {
     table.appendChild(tBody);
     tableItems.appendChild(table);
     optionsItems.appendChild(divRow);
-  });
 
-  // Obtener el elemnto buttonYes y aplicarle la funcionalidad de click para limpiar la tabla al confirmar la cancelacion
-  document.getElementById("buttonYes").addEventListener("click", function() {
-    tableItems.innerHTML = "";
-    optionsItems.innerHTML = "";
-    quantity = [];
-    clearCar();
+    // Obtener el elemnto buttonYes y aplicarle la funcionalidad de click para limpiar la tabla al confirmar la cancelacion
+    document.getElementById("buttonYes").addEventListener("click", function() {
+      tableItems.innerHTML = "";
+      optionsItems.innerHTML = "";
+      quantity = [];
+      tableHead = false;
+      clearCar();
+    });
   });
 }
 
