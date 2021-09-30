@@ -295,6 +295,7 @@ function restaurantEjecution (arrayFood) {
   document.getElementById("buttonYes").addEventListener("click", function() {
     tableItems.innerHTML = "";
     optionsItems.innerHTML = "";
+    quantity = [];
     clearCar();
   });
 }
@@ -306,6 +307,7 @@ let itemCar = document.getElementById("itemsAdd");
 // Reiniciar el contador de los items seleccionados en la orden
 function clearCar () {
   itemCar.textContent = (0) + " items";
+  numItems = 0;
 }
 
 // Contar los items seleccionados en la orden y adicionarlos en arreglo de objetos con su informacion respectiva

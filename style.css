@@ -73,11 +73,6 @@
     border: 1px gray solid;
 }
 
-/* Estilo para los elementos con la clase btn-order:hover */
-.btn-order:hover {
-    border: 1px gray solid;
-}
-
 /* Estilo para los elementos con la clase btn-row */
 .btn-row {
     margin-left: 0.7em;
