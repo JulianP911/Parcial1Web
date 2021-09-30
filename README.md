@@ -11,3 +11,12 @@
 </ol>
 <strong>*</strong> Es importante tener descarga la extensión <code>Live Server</code> en <code>Visual Studio Code</code>.
 <br>
+<strong>Vistas establecidas:</strong>
+<ul>
+  <li>Página principal de la aplicación</li>
+  <img src="https://github.com/JulianP911/Parcial1Web/blob/master/img/Figura%201.png" alt="Figura 1">
+  <li>Detalle de una orden</li>
+  <img src="https://github.com/JulianP911/Parcial1Web/blob/master/img/Figura%202.png" alt="Figura 2">
+  <li>Mensaje para confirmar la cancelación de la orden</li>
+  <img src="https://github.com/JulianP911/Parcial1Web/blob/master/img/Figura%203.png" alt="Figura 2">
+</ul>
